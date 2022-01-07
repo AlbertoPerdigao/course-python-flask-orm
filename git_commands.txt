@@ -8,6 +8,11 @@ git push
 or
 git push -u origin <branch_name>
 
+git branch <branch_name2>        # create a new branch           Ex.: git branch dev
+git checkout <branch_name2>      # switch to the <branch_name2>  Ex.: git checkout dev
 
-git branch <branch_name>        # create a new branch
-git checkout <branch_name>      # switch the branch
+When you want to merge your feature branch (dev) into the master branch:
+
+git checkout master
+git fetch
+git merge dev
