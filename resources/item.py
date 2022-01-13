@@ -15,12 +15,12 @@ class Item(Resource):
         help="Every item needs a store id."
     )   
     
-    @jwt_required
+    @jwt_required()
     def get(self, name):
         try:
             item = ItemModel.find_by_name(name)
         except:
-            return {"message": "An error occurred getting the item."}, 500
+            return {'message': 'An error occurred getting the item.'}, 500
 
         if item:
             return item.json()
