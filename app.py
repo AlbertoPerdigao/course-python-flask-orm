@@ -1,4 +1,5 @@
 import os
+from turtle import Turtle
 from flask import Flask
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
@@ -24,6 +25,12 @@ app.secret_key = 'jose' # app.config['JWT_SECRET_KEY']
 api = Api(app)
 
 jwt = JWTManager(app) # /login (default is /auth)
+
+@jwt.additional_claims_loader
+def add_claims_to_jwt(identity):
+    if identity == 1: # Instead of hard-coding, you should read a config file or a database
+        return {'is_admin': True}
+    return {'is_admin': False}
 
 api.add_resource(Item, '/item/<string:name>')
 api.add_resource(ItemList, '/items')
