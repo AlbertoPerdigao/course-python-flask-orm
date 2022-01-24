@@ -15,7 +15,7 @@ python3 -m virtualenv venv --python=python3
 
 **Actvate environment**
 ```
-(Win)
+(Win) (Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser)
 venv/Scripts/activate
 
 (Linux/Mac)
