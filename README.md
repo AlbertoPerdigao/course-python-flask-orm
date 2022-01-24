@@ -31,6 +31,7 @@ pip3 install Flask-RESTful
 **Authentication (Flask - Jason Web Token)**
 ```
 pip3 install Flask-JWT
+pip3 install Flask-JWT-Extended
 ```
 
 **ORM**
