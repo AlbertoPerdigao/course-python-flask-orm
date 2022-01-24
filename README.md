@@ -13,7 +13,7 @@ OR
 python3 -m virtualenv venv --python=python3
 ```
 
-**Actvate environment**
+**Activate environment**
 ```
 (Win) (Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser)
 venv/Scripts/activate
