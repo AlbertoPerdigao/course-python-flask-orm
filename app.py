@@ -43,11 +43,11 @@ def add_claims_to_jwt(identity):
     return {'is_admin': False}
 
 @jwt.token_in_blocklist_loader
-def check_if_token_in_blacklist(decrypted_token, jwt_payload):
-    return decrypted_token['identity'] in BLACKLIST
+def check_if_token_in_blacklist(jwt_headers, jwt_payload):
+    return jwt_payload['sub'] in BLACKLIST
 
 @jwt.expired_token_loader
-def expired_token_callback():
+def expired_token_callback(jwt_headers, jwt_payload):
     return jsonify({
         'description': 'The token has expired.',
         'error': 'token_expired'
@@ -68,7 +68,7 @@ def missing_token_callback(error):
     }), 401
 
 @jwt.needs_fresh_token_loader
-def token_not_fresh_callback():
+def token_not_fresh_callback(jwt_headers, jwt_payload):
     return jsonify({
         'description': 'The token is not fresh.',
         'error': 'fresh_token_required'
