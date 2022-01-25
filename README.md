@@ -48,3 +48,8 @@ pip3 freeze
 ```
 https://flask-jwt-extended.readthedocs.io/en/stable/v4_upgrade_guide/
 ```
+
+**Flask-JWT-Extended’s Documentation**
+```
+https://flask-jwt-extended.readthedocs.io/en/latest/index.html
+```
