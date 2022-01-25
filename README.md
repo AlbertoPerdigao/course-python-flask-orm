@@ -43,3 +43,8 @@ pip3 install Flask-SQLAlchemy
 ```
 pip3 freeze
 ```
+
+**Flask-JWT-Extended 4.0.0 - Changes and Upgrade Guide**
+```
+https://flask-jwt-extended.readthedocs.io/en/stable/v4_upgrade_guide/
+```
