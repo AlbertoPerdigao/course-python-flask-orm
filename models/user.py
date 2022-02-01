@@ -1,4 +1,3 @@
-from werkzeug.utils import send_file
 from db import db
 
 class UserModel(db.Model):
