@@ -6,7 +6,6 @@ from blacklist import BLACKLIST
 from resources.user import UserRegister, User, UserLogin, UserLogout, TokenRefresh
 from resources.item import Item, ItemList
 from resources.store import Store, StoreList
-from blacklist import BLACKLIST
 from db import db
 
 app = Flask(__name__)
