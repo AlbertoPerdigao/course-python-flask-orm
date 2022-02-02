@@ -51,7 +51,7 @@ class Item(Resource):
         if item:
             item.delete_from_db()
             return {"message": "Item deleted."}, 200
-            
+
         return {"message": "Item not found."}, 404        
 
     def put(self, name):
@@ -65,12 +65,19 @@ class Item(Resource):
 
         item.save_to_db()
 
-        return item.json()
+        return item.json(), 200
 
 
 class ItemList(Resource):
     @jwt_required(optional=True)
     def get(self):
+        """
+        Here we get the JWT identity, and then if the user is logged in (we were able to get an identity)
+        we return the entire item list.
+        Otherwise we just return the item names.
+        This could be done with e.g. see orders that have been placed, but not see details about the orders
+        unless the user has logged in.
+        """
         user_id = get_jwt_identity()
         items = [item.json() for item in ItemModel.find_all()]
         if user_id:
