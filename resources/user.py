@@ -7,7 +7,7 @@ from flask_jwt_extended import (
     get_jwt_identity,
     get_jwt
 )
-from blacklist import BLACKLIST
+from blocklist import BLOCKLIST
 from models.user import UserModel
 
 _user_parser = reqparse.RequestParser()
@@ -78,7 +78,7 @@ class UserLogout(Resource):
     def post(self):
         jti = get_jwt()['jti']  # jti is "JWT ID", a unique identifier for a JWT.
         user_id = get_jwt_identity()
-        BLACKLIST.add(jti)
+        BLOCKLIST.add(jti)
         return {"message": "User <id={}> successfully logged out.".format(user_id)}, 200
 
 
